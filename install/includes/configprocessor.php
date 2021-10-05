@@ -47,7 +47,7 @@ flush();
 //Validate DB connectivity
 echo "Checking DB connectivity...";
 flush();
-$con=mysqli_connect($servername,"root",$rootpass);
+$con= new mysqli($servername,"root",$rootpass);
 
 if (mysqli_connect_errno())
   {
@@ -130,7 +130,7 @@ require_once __DIR__.'/config_files.php';
 	flush();
 
 	file_put_contents('../../admin/includes/conn.php', $adminconfig1);
-	file_put_contents('../../admin/includes/configp.php', $adminconfig2);
+	file_put_contents('../../admin/includes/config.php', $adminconfig2);
 	
 	echo "Success!<br>";
 	flush();
@@ -164,7 +164,7 @@ require_once __DIR__.'/config_files.php';
 	$sql_query = split_sql_file($sql_query, ';');
 
 
-	mysql_connect($servername,'root',$rootpass) or die('error connection');
+    $con= new mysqli($servername,'root',$rootpass) or die('error connection');
 
 	$i=1;
 	foreach($sql_query as $sql){
@@ -172,7 +172,7 @@ require_once __DIR__.'/config_files.php';
 	//echo "	";
 	//echo $sql;
 	//echo "<br>";
-	mysql_query($sql) or die('error in query');
+	mysqli_query($con, $sql) or die('error in query');
 	}
 
 	echo "Success!<br>";
@@ -211,13 +211,13 @@ require_once __DIR__.'/config_files.php';
 			$sql_query = split_sql_file($sql_query, ';');
 
 
-			mysql_connect($servername,'root',$rootpass) or die('error connection');
+			$con = new mysqli($servername,'root',$rootpass) or die('error connection');
 
 			$i=1;
 			foreach($sql_query as $sql){
 			//echo $i++;
 			//echo "	";
-			mysql_query($sql) or die('error in query');
+			mysqli_query($con, $sql) or die('error in query');
 			}
 
 			
