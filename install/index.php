@@ -52,9 +52,10 @@
 			//Check versions
 			require '../includes/config.php';
 			db();
-			$sql = 'SELECT id,configName,configValue FROM config where configname = "version"';
-			$qry = mysqli_query($con, $sql);
-			$dbversion = mysqli_result($qry,0,2);
+			$sql = 'SELECT id,configName,configValue FROM config where configName = "version"';
+            $result = mysqli_query($con, $sql);
+            $row = mysqli_fetch_assoc($result);
+            $dbversion = $row['configValue'];
 		
 			echo '<br><select name="selectaction">';
 			if ($dbversion != $rpintsversion) {

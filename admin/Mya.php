@@ -50,25 +50,26 @@ include 'header.php';
   
   $sql="SELECT `name` FROM `users` WHERE username='$_SESSION[myusername]'";
   $result=mysqli_query($con, $sql);
+  $row = mysqli_fetch_assoc($result);
+  echo $row['name'];
 
-echo mysqli_result($result, 0, 'name');
 ?><br />
  <font size="2" Color="Black" font-family="Impact">Username:</font>
    <?php
   
   $sql="SELECT `username` FROM `users` WHERE username='$_SESSION[myusername]'";
-$result=mysqli_query($con, $sql);
-
-echo mysqli_result($result, 0, 'username');
+  $result=mysqli_query($con, $sql);
+  $row = mysqli_fetch_assoc($result);
+  echo $row['username'];
 
 ?><br />
 <font size="2" Color="Black" font-family="Impact"> Email:</font>
   <?php
   
   $sql="SELECT `email` FROM `users` WHERE username='$_SESSION[myusername]'";
-$result=mysqli_query($con, $sql);
-
-echo mysqli_result($result, 0, 'email');
+  $result=mysqli_query($con, $sql);
+  $row = mysqli_fetch_assoc($result);
+  echo $row['email'];
 
 ?>
 <br />

@@ -2,16 +2,16 @@
 /***************************************************************************
 * Config files for V1.0
 ****************************************************************************/
-	
-	//Main config files - /includes/config.php
-    $mainconfigstring = '<?php \n';
-	$mainconfigstring .= '    function db() {\n';
-	$mainconfigstring .= '        $link = ';
-	$mainconfigstring .= '$con = new mysqli_connect($servername, $dbuser, $dbpass1, raspberrypints);\n';
-	$mainconfigstring .= '	}\n';
-	$mainconfigstring .= '    $rpintsversion="1.0.0.279";\n';
-	$mainconfigstring .= '?>';
-	
+
+    //Main config files - /includes/config.php
+    $mainconfigstring = "<?php \n";
+    $mainconfigstring .= "    function db() {\n";
+    $mainconfigstring .= '        $con = ';
+    $mainconfigstring .= "mysqli_connect('" . $servername . "', '" . $dbuser . "', '" . $dbpass1 . "', 'raspberrypints');\n";
+    $mainconfigstring .= "	}\n";
+    $mainconfigstring .= '    $rpintsversion="1.0.0.279";' . "\n";
+    $mainconfigstring .= "?>";
+
 	//Admin config file - /admin/conn.php
 	$adminconfig1 = "<?php \n";
 	$adminconfig1 .= '   $host="' . "{$servername}" . '"; // Host name' . "\n";
@@ -20,7 +20,7 @@
 	$adminconfig1 .= '   $db_name="raspberrypints"; // Database name' . "\n";
 	$adminconfig1 .= '   $tbl_name="users";' . "\n";
 	$adminconfig1 .= '   //Connect to server and select databse.' . "\n";
-	$adminconfig1 .= '   $con = new mysqli_connect("$host", "$username", "$password", "$db_name")or die("cannot connect to server");' . "\n";
+	$adminconfig1 .= '   $con = mysqli_connect("$host", "$username", "$password", "$db_name")or die("cannot connect to server");' . "\n";
 	$adminconfig1 .= '?>';
 	
 	//Admin config file - /admin/config.php
